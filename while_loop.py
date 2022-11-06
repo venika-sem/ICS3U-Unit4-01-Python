@@ -1,25 +1,38 @@
 #!/usr/bin/env python3
-
 # Created by: Venika Sem
 # Created on: Nov 2022
-# This program uses a while loop
+# This program uses while loops
 
 
 def main():
-    # this function uses a while loop
 
-    # this is to keep track of hw many times you go through the loop
     loop_counter = 0
+    add_int = 0
 
-    # input
-    print("\n", end = "")
-    positive_integer = int(input("Enter how many times to repeat: "))
+    # This function adds all the whole numbers up to the inputted number
 
-    # process & output
-    print("\n", end = "")
-    while loop_counter < positive_integer:
-        print("{0} time through loop.".format(loop_counter))
-        loop_counter = loop_counter + 1
+    # Input
+    positive_string = input("Please enter a positive number: ")
+    print("")
+
+    # Process and output
+    try:
+        positive_integer = int(positive_string)
+        if positive_integer > 0:
+            while loop_counter < positive_integer:
+                loop_counter = loop_counter + 1
+                add_int = add_int + loop_counter
+            print(
+                "The sum of all positive numbers from 1 to {0} is {1}.".format(
+                    positive_integer, add_int
+                )
+            )
+        else:
+            print("{0} is not a positive integer".format(positive_string))
+    except ValueError:
+        print("{0} is not a valid input".format(positive_string))
+    finally:
+        print("\nDone.")
 
 
 if __name__ == "__main__":
